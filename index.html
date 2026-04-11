@@ -33,22 +33,30 @@
         }
         
         .monument-header {
+            position: relative; /* Allows absolute positioning of the crest inside */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 60px 20px 60px 20px;
+            padding: 80px 20px 60px 20px; /* Added top padding to clear the logo */
             background: radial-gradient(circle at center top, rgba(212, 175, 55, 0.1) 0%, rgba(3, 6, 4, 1) 80%);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 10px 50px rgba(0,0,0,0.8);
             box-sizing: border-box;
         }
 
+        /* Top Right Hovering Crest */
+        .sovereign-crest-link {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            z-index: 10;
+        }
+
         .sovereign-crest {
-            width: 90px;
+            width: 85px;
             height: auto;
-            margin-bottom: 30px;
             filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
             transition: all 0.3s ease;
         }
@@ -58,6 +66,43 @@
             transform: scale(1.05);
         }
 
+        /* Royal Titles (Now at Top) */
+        .royal-highness-link {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .royal-highness-link:hover .royal-highness {
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .royal-highness {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .one-nation-zambia {
+            font-size: 1.4rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .one-nation-zambia span {
+            color: #d4af37;
+        }
+
+        /* The Grand Medallion */
         .lesa-medallion-monument {
             width: 400px; /* Massive Hero Scale */
             height: 400px;
@@ -76,29 +121,6 @@
             transform: scale(1.03);
             box-shadow: 0 0 80px rgba(212, 175, 55, 0.8), inset 0 0 30px rgba(0,0,0,0.9);
             border-color: #ffffff;
-        }
-
-        .royal-highness {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-        
-        .one-nation-zambia {
-            font-size: 1.4rem;
-            color: #ffffff;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .one-nation-zambia span {
-            color: #d4af37;
         }
 
         .royal-bio-monument {
@@ -155,29 +177,38 @@
 
         /* Responsive */
         @media (max-width: 800px) {
+            .sovereign-crest-link { top: 20px; right: 20px; }
+            .sovereign-crest { width: 65px; }
+            .monument-header { padding-top: 100px; }
             .lesa-medallion-monument { width: 300px; height: 300px; border-width: 10px;}
             .royal-highness { font-size: 1.8rem; }
             .one-nation-zambia { font-size: 1.1rem; }
             .royal-bio-monument { font-size: 1.1rem; padding: 20px;}
         }
         @media (max-width: 500px) {
-            .sovereign-crest { width: 70px; }
+            .sovereign-crest-link { top: 15px; right: 15px; }
+            .sovereign-crest { width: 50px; }
+            .monument-header { padding-top: 90px; padding-left: 15px; padding-right: 15px; }
             .lesa-medallion-monument { width: 240px; height: 240px; }
             .royal-highness { font-size: 1.5rem; letter-spacing: 2px;}
             .one-nation-zambia { font-size: 0.9rem; }
-            .monument-header { padding: 40px 15px 40px 15px; }
         }
     </style>
 </head>
 <body>
 
     <div class="monument-header">
-        <img src="assets/zam-can.png" alt="ZAM-CAN Sovereign Crest" class="sovereign-crest">
+        
+        <a href="https://alchemifusion.planetcan.international/dome?view=public" class="sovereign-crest-link" title="Enter the ZAM-CAN Dome">
+            <img src="assets/zam-can.png" alt="ZAM-CAN Sovereign Crest" class="sovereign-crest">
+        </a>
+
+        <a href="https://houseofchiefs.africa" class="royal-highness-link" title="Return to HOUSE-OF-CHIEFS.Africa Directory">
+            <div class="royal-highness">Her Royal Highness Chieftainess Lesa</div>
+        </a>
+        <div class="one-nation-zambia">House of Chiefs | Copperbelt Province | <span>Kingdom of One-Nation Zambia</span></div>
 
         <div class="lesa-medallion-monument" title="Her Royal Highness Chieftainess Lesa"></div>
-        
-        <div class="royal-highness">Her Royal Highness Chieftainess Lesa</div>
-        <div class="one-nation-zambia">House of Chiefs | Copperbelt Province | <span>Kingdom of One-Nation Zambia</span></div>
         
         <div class="royal-bio-monument">
             Born on 5 May 1957, at 68 years of age, Her Royal Highness stands as a rare and profound leader, echoing the transformative spirits of President Hakainde Hichilema and Nelson Mandela. Behind the royal title is a deeply authentic soul who sits in the quiet of the garden, sharing profound wisdom for hours. She serves as the vital bridge between two eras: ensuring her people embrace modernisation and top-tier technology, while remaining unshakeably rooted in their tribal cultures and freedoms. She is a leader who breathes in fire and blows out peace and trust. Our Chieftainess possesses boundless wisdom and limitless energy, leaving a deep, spearhead impression upon the hearts, minds, and souls of her people.
@@ -185,11 +216,11 @@
     </div>
 
     <div class="vault-content">
-        <div class="system-standby">SOVEREIGN MY-VAULT MODULES STANDING BY...</div>
+        <div class="system-standby">SOVEREIGN-SANCTUM  MY-VAULT MODULES STANDING BY...</div>
     </div>
 
     <div class="footer">
-        HRH CHIEFTAINESS LESA | PLANET-CAN GEN 11.2 V101.001.016 | PLANET-CAN Technologies
+        HRH CHIEFTAINESS LESA | PLANET-CAN GEN 11.2 V101.001.017 | PLANET-CAN Technologies
     </div>
 
     <script>
